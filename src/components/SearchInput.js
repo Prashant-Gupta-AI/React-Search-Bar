@@ -3,13 +3,20 @@ import React from 'react';
 class SearchInput extends React.Component{
     constructor(props){
         super(props)
-        this.state={entry:''}
+        this.state={entry:''} 
+
+        
     }
+
+    onFormSubmit= (event) => {
+        event.preventDefault();
+        this.props.onSearchSubmit(this.state.entry)
+    } 
 
     render(){
         return(
-            <div>
-                <form className='ui segment' action=''>
+            <div className='ui segment'>
+                <form onSubmit={this.onFormSubmit} className='ui form' action=''>
                     <div className='field'>
                         <div className='ui massive icon input'>
                         <input 
@@ -27,4 +34,4 @@ class SearchInput extends React.Component{
     }
 }
 
-export default SearchInput
+export default SearchInput;
